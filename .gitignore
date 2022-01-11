@@ -1,4 +1,4 @@
 .vs/
-.txt/
+*.txt/
 BibliotecaWeb/bin/
 BibliotecaWeb/obj/
