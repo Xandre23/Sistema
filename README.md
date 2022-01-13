@@ -1,3 +1,3 @@
 # Sistema
 Sistema para praticar
-Usando boas práticas de programação e fazendo um crud
+Desenvolvendo uma Biblioteca WEB, usando boas práticas de programação!
