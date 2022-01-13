@@ -1,9 +1,14 @@
-﻿using BibliotecaWeb.Models;
+﻿using BibliotecaWeb.DAO.Account;
+using BibliotecaWeb.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Security.Claims;
+using System.Security.Policy;
 using System.Threading.Tasks;
 
 namespace BibliotecaWeb.Controllers
@@ -22,11 +27,30 @@ namespace BibliotecaWeb.Controllers
         {
             return View();
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+       
+        [HttpPost]
+        public async Task<JsonResult> Create(UserViewModel user)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            try
+            {
+            
+                var accountDAO = new AccountDAO();
+                await accountDAO.Create(user);
+                var httpResponse = new HttpResponseViewlModel(Convert.ToInt32(HttpStatusCode.OK), string.Empty);
+                return Json(httpResponse);
+            }
+            catch (Exception ex)
+            {
+                string message = "Um erro ocorreu, tente novamente mais tarde";
+                if (ex.Message.Contains("usuario.email_UNIQUE"))
+                {
+                    message = "Esse Email já esta sendo utilizado";
+                }
+                var httpResponse = new HttpResponseViewlModel(Convert.ToInt32(HttpStatusCode.BadRequest), message);
+                return Json(httpResponse);
+            }
         }
+
 
     }
 }
