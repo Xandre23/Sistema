@@ -27,7 +27,11 @@ namespace BibliotecaWeb.Controllers
         {
             return View();
         }
-      public IActionResult Create()
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Create()
         {
             return View();
         }

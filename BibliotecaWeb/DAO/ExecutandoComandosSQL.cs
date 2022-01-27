@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace BibliotecaWeb.DAO
@@ -28,18 +27,21 @@ namespace BibliotecaWeb.DAO
             }
         }
 
-      /*  protected async Task<DataTable> Select(MySqlCommand command)
+        protected async Task<DataTable> Select(MySqlCommand command)
         {
-            MySqlConnection conn = new MySqlConnection();
+            MySqlConnection conn = new MySqlConnection(GetConnectionString());
             try
             {
                 await conn.OpenAsync();
                 command.Connection = conn;
+                
+
                 var mysqlData = new MySqlDataAdapter();
                 mysqlData.SelectCommand = command;
                 var dataTable = new DataTable();
 
                 mysqlData.Fill(dataTable);
+
                 return dataTable;
             }
             catch (MySqlException ex)
@@ -50,11 +52,11 @@ namespace BibliotecaWeb.DAO
             {
                 await conn.CloseAsync();
             }
-        }*/
+        }
 
         protected async Task Update(MySqlCommand command)
         {
-            MySqlConnection conn = new MySqlConnection();
+            MySqlConnection conn = new MySqlConnection(GetConnectionString());
             try
             {
                 await conn.OpenAsync();
@@ -73,7 +75,7 @@ namespace BibliotecaWeb.DAO
 
         protected async Task Delete(MySqlCommand command)
         {
-            MySqlConnection conn = new MySqlConnection();
+            MySqlConnection conn = new MySqlConnection(GetConnectionString());
             try
             {
                 await conn.OpenAsync();
