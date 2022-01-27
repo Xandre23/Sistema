@@ -24,6 +24,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/main.js"></script>
+    
 </head>
 
 <body class="full-cover-background" style="background-image:url(assets/img/font-login.jpg);">
@@ -32,15 +33,15 @@
             <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
         </p>
         <h4 class="text-center all-tittles" style="margin-bottom: 30px;">Fazer login:</h4>
-        <form>
+        <form class="mt-5 mb-5" method="post" id="frm-login">
             <div class="group-material-login">
-                <input type="text" class="material-login-control" required="" maxlength="70">
+                <input type="text" id="emaillg" name="email" class="material-login-control" required="" maxlength="70">
                 <span class="highlight-login"></span>
                 <span class="bar-login"></span>
-                <label><i class="zmdi zmdi-account"></i> &nbsp; Nome:</label>
+                <label><i class="zmdi zmdi-account"></i> &nbsp; Email:</label>
             </div><br>
             <div class="group-material-login">
-                <input type="password" class="material-login-control" required="" maxlength="70">
+                <input type="password" id="senhalg" name="password" class="material-login-control" required="" maxlength="70">
                 <span class="highlight-login"></span>
                 <span class="bar-login"></span>
                 <label><i class="zmdi zmdi-lock"></i> &nbsp; Senha:</label>
@@ -53,8 +54,10 @@
                     <option value="Admin">Administrador</option>
                 </select>
             </div>
-            <button class="btn-login" type="submit">Logar &nbsp; <i class="zmdi zmdi-arrow-right"></i></button>
+            <button type="submit" id="btn-login" class="btn btn-primary mt-3">Entrar</button>
         </form>
+        <script src="~/js/account.js" asp-append-version="true"></script>
+
     </div>
 </body>
 </html>

@@ -1,14 +1,13 @@
-﻿namespace BibliotecaWeb.Controllers
+﻿namespace BibliotecaWeb.Models
 {
-    internal class HttpResponseViewlModel
+    public class HttpResponseViewlModel
     {
-        private int v;
-        private string empty;
-
-        public HttpResponseViewlModel(int v, string empty)
+        public int Code { get; set; }
+        public string Message { get; set; }
+        public HttpResponseViewlModel(int code, string message)
         {
-            this.v = v;
-            this.empty = empty;
+            Code = code;
+            Message = message;
         }
     }
 }

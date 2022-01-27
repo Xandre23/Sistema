@@ -70,3 +70,33 @@
         },
     });
 });
+
+
+$("#frm-login").click(function () {
+
+    const parameters = {
+        email: $("#emaillg").val(),
+        password: $("#senhalg").val()
+    }
+    if (!parameters.email || !parameters.password){
+    return;
+}
+$.ajax({
+    type: "POST",
+    url: "/Account/Login",
+    data: $.param(parameters),
+    dataType: "json",
+    success: function (response) {
+        console.log(response);
+        if (response.code != 200) {
+            alert(response.message);
+        } else {
+            window.location.href = "/Account/Index";
+        }
+    },
+    error: function () {
+        alert("error");
+    }
+});
+});
+
