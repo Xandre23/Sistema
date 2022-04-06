@@ -20,17 +20,22 @@ namespace BibliotecaWeb.Controllers
         {
             return View();
         }
-        public IActionResult Login()
-        {
-            return View();
-        }
-
         public IActionResult Index()
         {
             return View();
         }
-      
-     
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Admin()
+        {
+            return View();
+        }
+        public IActionResult listadmin()
+        {
+            return View();
+        }
 
         [HttpGet]
         public async Task<JsonResult> Get(int userID)
@@ -70,19 +75,20 @@ namespace BibliotecaWeb.Controllers
             
             try
             {
-                var hash = new Hash();
-                string hashedPassword = hash.GenerateHashSHA512(password);
+                
                 var accountDAO = new AccountDAO();
                 var user = await accountDAO.Login(email);
+                
                 if (user == null)
                 {
                     var result = new HttpResponseViewlModel(Convert.ToInt32(HttpStatusCode.BadRequest), "Email não encontrado");
-                    return Json(result);
+                    return Json(View(Login()));
+                    
                 }
-                if (!user.Senha.Equals(hashedPassword) & user.Senha == null)
+                if (!user.Senha.Equals(password))
                 {
-                    var response = new HttpResponseViewlModel(Convert.ToInt32(HttpStatusCode.BadRequest), "Senha incorreta");
-                    return Json(response);
+                    var result = new HttpResponseViewlModel(Convert.ToInt32(HttpStatusCode.BadRequest), "Senha incorreta");
+                    return Json(View(Login()));
                 }
                 var claims = new List<Claim>();
                 claims.Add(new Claim(ClaimTypes.NameIdentifier, user.ID.ToString()));

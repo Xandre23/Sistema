@@ -60,7 +60,8 @@
                 datatype: "json",
                 success: function () {
                     
-                        alert("Cadastro realizado com sucesso")
+                    alert("Cadastro realizado com sucesso");
+                    window.location.href = "/Account/Login";
              
                 },
                 error: function () {
@@ -91,11 +92,12 @@ $.ajax({
         if (response.code != 200) {
             alert(response.message);
         } else {
-            window.location.href = "/Account/Index";
+            window.location.href = "/Account/Admin";
         }
     },
     error: function () {
-        alert("error");
+        alert("Login ou senha invalidos");
+       
     }
 });
 });
