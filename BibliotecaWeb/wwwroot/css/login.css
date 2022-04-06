@@ -1,19 +1,25 @@
+body{
+    background-image: url(/assets/img/font-login.jpg);
+   
+}
 .form-container{
+
     color: #fff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
     background-color: rgba(50,64,77,.90);
     position: absolute;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -51%);
+    -ms-transform: translate(-30%, -50%);
 }
 .group-material-login{ 
     position:relative; 
-    margin-bottom:25px; 
+    margin-bottom:15px; 
 }
 .material-login-control,
 .material-control-login{
@@ -57,7 +63,7 @@ input.material-login-control:invalid:required{
   content:'';
   height:2px; 
   width:0;
-  bottom:1px; 
+  bottom:5px; 
   position:absolute;
   background:#fff; 
   transition:all 0.2s ease; 
@@ -82,6 +88,8 @@ input.material-login-control:focus ~ .bar-login:before, input.material-login-con
     position: absolute;
     bottom: 3%;
     right: 3%;
+    
+    
 }
 .btn-login:hover{
     border: none;
@@ -99,14 +107,5 @@ label{
     font-size: 16px;
 }
 .radio-inline label:hover{
-    cursor: pointer;
-}
-select.material-control-login{
-    -ms-appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background: #444F55 url(../assets/icons/SelectMaterialIndicator-white.png) no-repeat scroll right 0.75rem center / 13px 8px;
-}
-select.material-control-login:hover{
     cursor: pointer;
 }

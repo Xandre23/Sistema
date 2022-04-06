@@ -16,13 +16,13 @@ $(document).ready(function(){
         e.preventDefault();
         var LinkExitSystem=$(this).attr("data-href");
         swal({
-            title: "¿Estás seguro?",
-            text: "Quieres salir del sistema y cerrar la sesión actual",
+            title: "Tem Certeza?",
+            text: "Quer sair do sistema atual?",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#5cb85c",
-            confirmButtonText: "Si, salir",
-            cancelButtonText: "No, cancelar",
+            confirmButtonText: "Sim",
+            cancelButtonText: "Cancelar",
             animation: "slide-from-top",
             closeOnConfirm: false 
         },function(){
@@ -33,8 +33,8 @@ $(document).ready(function(){
         e.preventDefault();
         var LinkSearchBook=$(this).attr("data-href");
         swal({
-           title: "¿Qué libro estás buscando?",
-           text: "Por favor escribe el nombre del libro",
+           title: "Qual livro está buscando?",
+           text: "Por favor escreva o nome do livro",
            type: "input",   
            showCancelButton: true,
            closeOnConfirm: false,
